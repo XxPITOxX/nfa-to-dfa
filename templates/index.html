@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <link href="https://unpkg.com/vis-network/standalone/umd/vis-network.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="network-container"></div>
+
+    <input type="text" id="states-input" class="input-overlay" placeholder="For example: q0, q1, q2" oninput="generateTable()">
+    <input type="text" id="alphabet-input" class="input-overlay" placeholder="For example: a, b" oninput="generateTable()">
+
+    <div class="table-wrapper">
+        <table id="transition-table">
+            <thead><tr id="table-header"></tr></thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+
+    <button class="btn-convert" onclick="convertNFA()"></button>
+    <button class="btn-reset" onclick="resetAll()"></button>
+
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
